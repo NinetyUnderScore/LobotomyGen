@@ -2,7 +2,7 @@ import os
 import moviepy
 import random
 import numpy as np
-import VideoEffector
+import VideoGen.VideoEffector
 from moviepy.editor import vfx, VideoFileClip, CompositeVideoClip
 
 def Combine():
