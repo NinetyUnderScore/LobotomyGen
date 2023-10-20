@@ -1,5 +1,5 @@
-/videos/
-/videosTrimmed/
-EndVideo.mp4
-EndVideoTEMP_MPY_wvf_snd.mp4
-/__pycache__/
+/VideoGen/videos/
+/VideoGen/videosTrimmed/
+/VideoGen/EndVideo.mp4
+/VideoGen/EndVideoTEMP_MPY_wvf_snd.mp4
+/VideoGen/__pycache__/
