@@ -24,6 +24,8 @@ def Combine():
 
             Clips.append(video)
 
+    
+
     finalVideo = CompositeVideoClip(Clips)
     finalVideo.write_videofile(os.path.join(os.path.dirname(__file__), "EndVideo.mp4"), codec="libx264", audio_codec="aac", bitrate='50k')
 

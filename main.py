@@ -2,12 +2,16 @@ from pytube import YouTube
 import os
 import Searcher
 import VideoTrimmer
+import ChannelIndexer
 import EndVideo
 
 # Searcher.Clear()
-# VideoTrimmer.Clear()
+Searcher.Src(input("Input prompt:"), 5) 
 
-# Searcher.Src("the smiths", 10) 
-# VideoTrimmer.Trim()
+# ChannelIndexer.Clear()
+# ChannelIndexer.Index(input("Input playlist:"), 10)
+
+# VideoTrimmer.Clear()
+VideoTrimmer.Trim() 
 
 EndVideo.Combine()
