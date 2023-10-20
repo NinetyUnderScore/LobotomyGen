@@ -8,6 +8,6 @@ import EndVideo
 # VideoTrimmer.Clear()
 
 # Searcher.Src("the smiths", 10) 
-VideoTrimmer.Trim()
+# VideoTrimmer.Trim()
 
 EndVideo.Combine()
