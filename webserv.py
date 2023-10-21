@@ -1,11 +1,11 @@
 from flask import Flask, jsonify, request
 import os
-import VideoGen.Searcher, VideoGen.VideoTrimmer, VideoGen.ChannelIndexer, VideoGen.EndVideo
+import PostHandler
 
-if not os.path.exists(os.path.join(os.getcwd(), "videos")):
-    os.mkdir(os.path.join(os.getcwd(),"videos"))
-if not os.path.exists(os.path.join(os.getcwd(), "videosTrimmed")):
-    os.mkdir(os.path.join(os.getcwd(),"videosTrimmed"))
+if not os.path.exists(os.path.join(os.getcwd(), "VideoGen/videos")):
+    os.mkdir(os.path.join(os.getcwd(),"VideoGen/videos"))
+if not os.path.exists(os.path.join(os.getcwd(), "VideoGen/videosTrimmed")):
+    os.mkdir(os.path.join(os.getcwd(),"VideoGen/videosTrimmed"))
 
 app = Flask(__name__)
 
@@ -16,10 +16,13 @@ def req():
             data = {
                     "status": True,
                     "message" : "yipee!",
-                    "received" : request.headers["command"]
+                    "received" : request.headers["command"],
+                    "param1" : request.headers["param1"],
+                    "param2" : request.headers["param2"],
+                    "param3" : request.headers["param3"]
                 }
 
-            PostHandler(request.headers["command"])
+            PostHandler.Handle(request.headers["command"], request.headers["param1"], request.headers["param2"], request.headers["param3"])
 
             return jsonify(data)
         except Exception as exc:
