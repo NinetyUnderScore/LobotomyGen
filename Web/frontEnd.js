@@ -1,17 +1,63 @@
 videos = [];
 videosTrimmed = [];
 
-async function clearTrimmed() {
-    const responce = await fetch('http://127.0.0.1:9900/', {
+function sanitizeString(str){
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    return str.trim();
+}
+
+async function quickFetch(cmd, p1, p2, p3) {
+    const response = await fetch('http://127.0.0.1:9900/', {
         method: 'POST',
         headers:{
         'Content-Type': 'application/x-www-form-urlencoded'
         },    
         body: new URLSearchParams({
-            'command': 'clearTrimmed'
+            'command': cmd,
+            'param1': p1,
+            'param2': p2,
+            'param3': p3
         })
     });
+ 
+    return response;
+}
 
-    videosTrimmed.length = 0
-    console.log("cleared videosTrimmed")
+// simple no input no return functions
+
+async function clearTrimmed() {
+    response = await quickFetch('clearTrimmed', 0, 0, 0);
+
+    videosTrimmed.length = 0;
+    console.log("cleared videosTrimmed");
+}
+
+async function clearResults() {
+    response = await quickFetch('clearResults', 0, 0, 0);
+
+    videos.length = 0;
+    console.log("cleared videos");
+}
+
+async function search() {
+    query = document.getElementById("searchQuery").value;
+    amnt = sanitizeString(document.getElementById("searchAmount").value);
+
+    console.log("searching: " + query + ", " + amnt);
+
+    response = await quickFetch('clearTrimmed', query, amnt, 0);
+
+    console.log("search completed");
+}
+
+async function trim() {
+    response = await quickFetch('trim', 0, 0, 0);
+
+    console.log("trimmed");
+}
+
+async function combine() {
+    response = await quickFetch('combine', 0, 0, 0)
+
+    console.log("combined");
 }
