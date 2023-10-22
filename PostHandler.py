@@ -26,27 +26,27 @@ def Handle(cmd, p1, p2, p3):
     elif cmd == "getResults":
         videos = VideoGen.Searcher.Get()
 
-        return jsonify({
+        return {
             "status": True,
             "list": videos
-        })
+        }
     
     elif cmd == "getTrimmed":
         videos = VideoGen.VideoTrimmer.Get()
 
-        return jsonify({
+        return {
             "status": True,
             "list": videos
-        })
+        }
     
     else:
         raise Exception("Not a recognized command.")
     
-    return jsonify({
+    return {
                     "status": True,
                     "message" : "yipee!",
                     "command" : cmd,
                     "param1" : p1,  
                     "param2" : p2,
                     "param3" : p3
-                })
+                }

@@ -24,8 +24,8 @@ def req():
             param3 = request.form.getlist('param3')
             param3 = param3[0] if param3 else None
 
-            response = PostHandler.Handle(command, param1, param2, param3)
-            
+            response = jsonify(PostHandler.Handle(command, param1, param2, param3))
+
             response.headers.add('Access-Control-Allow-Origin', '*')
             return response
         except Exception as exc:
