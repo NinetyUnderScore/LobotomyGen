@@ -26,5 +26,15 @@ def Clear():
             file_path = os.path.join(FOLDER_PATH, file)
             os.remove(file_path)
 
+def Get():
+
+    FOLDER_PATH = os.path.join(os.path.dirname(__file__), 'videosTrimmed')
+
+    videos = []
+    for file in os.listdir(FOLDER_PATH):
+        if file.endswith('.mp4'):
+            videos.append(file)
+    return videos
+
 if __name__ == "__main__":
     Trim()

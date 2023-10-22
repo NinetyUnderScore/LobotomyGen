@@ -1,21 +1,52 @@
 import VideoGen.Searcher, VideoGen.VideoTrimmer, VideoGen.ChannelIndexer, VideoGen.EndVideo
 
 def Handle(cmd, p1, p2, p3):
-    print(cmd)
     if cmd == "clearResults":
         VideoGen.Searcher.Clear()
     
-    if cmd == "clearTrimmed":
+    elif cmd == "clearTrimmed":
+        VideoGen.VideoTrimmer.Clear()
+
+    elif cmd == "clearAll":
+        VideoGen.Searcher.Clear()
         VideoGen.VideoTrimmer.Clear()
     
-    if cmd == "search":
+    elif cmd == "search":
         VideoGen.Searcher.Src(p1, int(p2))
     
-    if cmd == "playlist":
+    elif cmd == "playlist":
         VideoGen.ChannelIndexer.Index(p1, int(p2))
 
-    if cmd == "trim":
+    elif cmd == "trim":
         VideoGen.VideoTrimmer.Trim()
     
-    if cmd == "combine":
+    elif cmd == "combine":
         VideoGen.EndVideo.Combine()
+
+    elif cmd == "getResults":
+        videos = VideoGen.Searcher.Get()
+
+        return jsonify({
+            "status": True,
+            "list": videos
+        })
+    
+    elif cmd == "getTrimmed":
+        videos = VideoGen.VideoTrimmer.Get()
+
+        return jsonify({
+            "status": True,
+            "list": videos
+        })
+    
+    else:
+        raise Exception("Not a recognized command.")
+    
+    return jsonify({
+                    "status": True,
+                    "message" : "yipee!",
+                    "command" : cmd,
+                    "param1" : p1,  
+                    "param2" : p2,
+                    "param3" : p3
+                })

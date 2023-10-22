@@ -13,24 +13,28 @@ app = Flask(__name__)
 def req():
     if request.method == "POST":
         try:
-            data = {
-                    "status": True,
-                    "message" : "yipee!",
-                    "received" : request.headers["command"],
-                    "param1" : request.headers["param1"],
-                    "param2" : request.headers["param2"],
-                    "param3" : request.headers["param3"]
-                }
+            data0 = request.form
+            
+            command = request.form.getlist('command')
+            command = command[0] if command else None
+            param1 = request.form.getlist('param1')
+            param1 = param1[0] if param1 else None
+            param2 = request.form.getlist('param2')
+            param2 = param2[0] if param2 else None
+            param3 = request.form.getlist('param3')
+            param3 = param3[0] if param3 else None
 
-            PostHandler.Handle(request.headers["command"], request.headers["param1"], request.headers["param2"], request.headers["param3"])
-
-            return jsonify(data)
+            response = PostHandler.Handle(command, param1, param2, param3)
+            
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
         except Exception as exc:
-            resp = {
+            response = jsonify({
                     "status": False,
                     "message" : str(exc)
-                    }
-            return jsonify(resp)
+                    })
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
 
 if __name__ == '__main__':
     port = 9900

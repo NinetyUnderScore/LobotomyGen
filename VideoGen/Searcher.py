@@ -30,3 +30,13 @@ def Clear():
 
     for i in os.listdir(FOLDER):
         os.remove(os.path.join(FOLDER, i))
+
+def Get():
+
+    FOLDER_PATH = os.path.join(os.path.dirname(__file__), 'videos')
+
+    videos = []
+    for file in os.listdir(FOLDER_PATH):
+        if file.endswith('.mp4'):
+            videos.append(file)
+    return videos
