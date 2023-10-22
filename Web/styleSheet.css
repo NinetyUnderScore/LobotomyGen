@@ -30,9 +30,11 @@ small {font-size: 0.750rem; /* 12px */}
 body {
     font-family: 'Poppins';
     font-weight: 400;
+    height: 100vh;
 
     margin: 0;
-    background-color: var(--background);
+    background: var(--background);
+    background: linear-gradient(135deg, var(--accent) -100%, var(--secondary) 0%, var(--background) 100%);
 }
 
 
