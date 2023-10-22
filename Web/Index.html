@@ -10,9 +10,38 @@
         <div class="center">
             
             <h1 id="title">LobotomyGen</h1>
+
+            <div id="searchInputs" class="alignX">
+
+                <input id="searchQuery" type="text" placeholder="Search query">
+
+                <input id="searchAmount" type="text" placeholder="#">
+
+            </div>
+
+            <div class="alignX">
+                <button id="searchButton" class="mainButton primaryButton center" onclick="search()">
+                    Search
+                </button>
+
+                <button id="clearResultsButton" class="mainButton primaryButton center" onclick="clearResults()">
+                    Clear
+                </button>
+            </div>
+
+            <div class="alignX">
+                <button id="trimButton" class="mainButton primaryButton center" onclick="trim()">
+                    Trim
+                </button>
+
+                <button id="clearTrimmedButton" class="mainButton primaryButton center" onclick="clearTrimmed()">
+                    Clear
+                </button>
+            </div>
             
-            <button id="mainButton" class="primaryButton center" onclick="clearTrimmed()">
-                Clear Trimmed Clips
+
+            <button id="combineButton" class="mainButton primaryButton center" onclick="combine()">
+                Render
             </button>
             
 

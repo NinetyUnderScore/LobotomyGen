@@ -1,50 +1,5 @@
+/* Text styling */
 @import url('https://fonts.googleapis.com/css?family=Poppins:700|Poppins:400');
-
-:root {
-    --text: #fefbfb;
-    --background: #110404;
-    --primary: #dc615b;
-    --secondary: #2a0b09;
-    --accent: #d2352d;
-}
-
-body {
-    font-family: 'Poppins';
-    font-weight: 400;
-
-    margin: 0;
-    background-color: var(--background);
-}
-
-#mainButton {
-    padding: 15px 32px;
-    border-radius: 50px;
-}
-
-.primaryButton {
-    font-family: 'Poppins';
-    font-weight: 400;
-    font-size: 0.9rem; /* 21.28px */
-
-    border-style: hidden;
-    background-color: var(--primary);
-    transition: 0.25s;
-}
-
-.primaryButton:hover {
-    background-color: var(--accent);
-}
-
-.primaryButton:active {
-    background-color: var(--secondary);
-    transition: 0.1s;
-}
-
-.center {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-}
 
 #title {
     padding-top: 10%;
@@ -65,3 +20,97 @@ h3 {font-size: 2.369rem; /* 37.92px */}
 h4 {font-size: 1.777rem; /* 28.48px */}
 h5 {font-size: 1.333rem; /* 21.28px */}
 small {font-size: 0.750rem; /* 12px */}
+
+
+
+/* Overall styling */
+
+:root {
+    --text: #fefbfb;
+    --background: #110404;
+    --primary: #dc615b;
+    --secondary: #2a0b09;
+    --accent: #d2352d;
+}
+
+body {
+    font-family: 'Poppins';
+    font-weight: 400;
+
+    margin: 0;
+    background-color: var(--background);
+}
+
+
+
+/* Aligners */
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.alignX {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+/* Interactable styling */
+
+input[type=text] {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.7rem;
+
+    color:var(--text);
+
+    border-style: solid;
+    background-color: var(--background);
+    border-color: var(--secondary);
+    padding-left: 15px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-radius: 50px;
+}
+
+.mainButton {
+    padding: 15px 32px;
+    border-radius: 50px;
+}
+
+.primaryButton {
+    color:var(--text);
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.9rem; /* 21.28px */
+
+    border-style: hidden;
+    background-color: var(--primary);
+    transition: 0.25s;
+}
+
+.primaryButton:hover {
+    background-color: var(--accent);
+}
+
+.primaryButton:active {
+    background-color: var(--secondary);
+    transition: 0.1s;
+}
+
+#searchQuery {
+    width: 200px;
+    padding-right: 15px;
+}
+
+#searchAmount {
+    width: 30px;
+    padding-right: 15px;
+    text-align: center;
+}
