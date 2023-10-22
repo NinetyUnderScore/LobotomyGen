@@ -12,6 +12,7 @@ def Effector(video, startTime, lastTime):
     
     speed = 1.0 - (random.random()-0.5)
     video = video.fx(vfx.speedx, factor=speed)  
+    video = video.set_position("center")
 
     video = video.fx(vfx.mask_color, color=[255,255,255], thr=10.0)
     video = video.fx(vfx.mask_color, color=[0,0,0], thr=10.0)

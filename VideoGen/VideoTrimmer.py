@@ -25,3 +25,6 @@ def Clear():
         if file.endswith('.mp4'):
             file_path = os.path.join(FOLDER_PATH, file)
             os.remove(file_path)
+
+if __name__ == "__main__":
+    Trim()

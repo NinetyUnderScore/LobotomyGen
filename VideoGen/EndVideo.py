@@ -2,7 +2,7 @@ import os
 import moviepy
 import random
 import numpy as np
-import VideoEffector
+import VideoGen.VideoEffector
 from moviepy.editor import vfx, VideoFileClip, CompositeVideoClip
 
 def Combine():
@@ -13,10 +13,15 @@ def Combine():
     for i,v in enumerate(os.listdir(videos_path)):
         if v.endswith('.mp4'):
             file_path = os.path.join(videos_path, v)
+            os.rename(file_path, os.path.join(videos_path, str(random.randint(0,10000))+str(i)+'.mp4'))
+
+    for i,v in enumerate(os.listdir(videos_path)):
+        if v.endswith('.mp4'):
+            file_path = os.path.join(videos_path, v)
             video = VideoFileClip(file_path)
             
             startTime = lastTime - (int(i!=0) * (1.0 * random.random()))
-            video = VideoEffector.Effector(video, startTime, lastTime)
+            video = VideoGen.VideoEffector.Effector(video, startTime, lastTime)
             lastTime = startTime + 3.0
             video = video.set_start(startTime)
 
