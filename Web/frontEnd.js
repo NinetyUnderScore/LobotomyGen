@@ -45,7 +45,7 @@ async function search() {
 
     console.log("searching: " + query + ", " + amnt);
 
-    response = await quickFetch('clearTrimmed', query, amnt, 0);
+    response = await quickFetch('search', query, amnt, 0);
 
     console.log("search completed");
 }
