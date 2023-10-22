@@ -63,7 +63,6 @@ input[type=text] {
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 0.7rem;
-
     color:var(--text);
 
     border-style: solid;
@@ -73,6 +72,20 @@ input[type=text] {
     padding-top: 16px;
     padding-bottom: 16px;
     border-radius: 50px;
+
+    transition: 0.25s;
+}
+
+input[type=text]:hover {
+    outline: none;
+    border: 2px solid var(--accent);
+    /* box-shadow: 0px 0px 10px var(--accent); */
+}
+
+input[type=text]:focus {
+    outline: none;
+    border: 2px solid var(--primary);
+    box-shadow: 0px 0px 10px var(--accent) inset, 0px 0px 10px var(--accent);
 }
 
 .mainButton {
@@ -124,4 +137,9 @@ input[type=text] {
 
 #title {
     margin: 0%;
+    text-shadow: 0px 0px 10px var(--text);
+}
+
+::selection {
+    background: transparent;
 }
