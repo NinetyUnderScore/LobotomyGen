@@ -34,7 +34,7 @@ body {
 
     margin: 0;
     background: var(--background);
-    background: linear-gradient(135deg, var(--accent) -100%, var(--secondary) 0%, var(--background) 100%);
+    background: linear-gradient(135deg, var(--accent) -100%, var(--secondary) 50%, var(--background) 100%);
 }
 
 
@@ -73,13 +73,14 @@ input[type=text] {
     padding-bottom: 16px;
     border-radius: 50px;
 
+    box-shadow: 0px 0px 10px var(--secondary);
     transition: 0.25s;
 }
 
 input[type=text]:hover {
     outline: none;
     border: 2px solid var(--accent);
-    /* box-shadow: 0px 0px 10px var(--accent); */
+    
 }
 
 input[type=text]:focus {
@@ -105,11 +106,38 @@ input[type=text]:focus {
 }
 
 .primaryButton:hover {
-    background-color: var(--accent);
+    box-shadow: 0px 0px 10px var(--primary);
 }
 
 .primaryButton:active {
+    background-color: var(--accent);
+    box-shadow: 0px 0px 10px var(--accent) inset, 0px 0px 10px var(--accent);
+    transition: 0.1s;
+}
+
+.secondaryButton {
+    color:var(--text);
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.9rem; /* 21.28px */
+
+    border-style: solid;
+    border-color: var(--accent);
     background-color: var(--secondary);
+    box-shadow: 0px 0px 3px var(--accent), 0px 0px 10px var(--accent) inset;
+    transition: 0.25s;
+}
+
+.secondaryButton:hover {
+    background-color: var(--secondary);
+    border-color: var(--accent);
+    box-shadow: 0px 0px 10px var(--accent), 0px 0px 10px var(--accent) inset;
+}
+
+.secondaryButton:active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0px 0px 10px var(--accent) inset, 0px 0px 10px var(--accent);
     transition: 0.1s;
 }
 
