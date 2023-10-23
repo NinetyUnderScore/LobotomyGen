@@ -1,4 +1,4 @@
-import VideoGen.Searcher, VideoGen.VideoTrimmer, VideoGen.ChannelIndexer, VideoGen.EndVideo
+import VideoGen.Searcher, VideoGen.VideoTrimmer, VideoGen.ChannelIndexer, VideoGen.EndVideo, VideoGen.ProgressLogger
 
 def Handle(cmd, p1, p2, p3):
     if cmd == "clearResults":

@@ -1,6 +1,11 @@
 import os
 import random
+import proglog
 from moviepy.editor import vfx, VideoFileClip, CompositeVideoClip
+from proglog import TqdmProgressBarLogger
+import VideoGen.ProgressLogger
+
+log = VideoGen.ProgressLogger.getLogger()
 
 def Trim():
     
@@ -15,7 +20,7 @@ def Trim():
             randomTime = random.randint(0,max(1,int(clip.duration)-30))
             trimmed_clip = clip.subclip(randomTime, min(randomTime+30, clip.duration))
             video = CompositeVideoClip([trimmed_clip])
-            video.write_videofile(new_file_path, codec="libx264", audio_codec="aac")
+            video.write_videofile(new_file_path, codec="libx264", audio_codec="aac", logger=log)
 
 def Clear():
 

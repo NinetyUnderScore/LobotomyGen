@@ -4,6 +4,9 @@ import random
 import numpy as np
 import VideoGen.VideoEffector
 from moviepy.editor import vfx, VideoFileClip, CompositeVideoClip
+import VideoGen.ProgressLogger
+
+log = VideoGen.ProgressLogger.getLogger()
 
 def Combine():
     videos_path = os.path.join(os.path.dirname(__file__),"videosTrimmed")
@@ -32,7 +35,7 @@ def Combine():
     
 
     finalVideo = CompositeVideoClip(Clips)
-    finalVideo.write_videofile(os.path.join(os.path.dirname(__file__), "EndVideo.mp4"), codec="libx264", audio_codec="aac", bitrate='50k')
+    finalVideo.write_videofile(os.path.join(os.path.dirname(__file__), "EndVideo.mp4"), codec="libx264", audio_codec="aac", bitrate='50k', logger=log)
 
 
 if __name__ == '__main__':
