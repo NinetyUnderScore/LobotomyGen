@@ -1,6 +1,30 @@
 videos = [];
 videosTrimmed = [];
 
+function setMaskX(x) {
+    path = document.getElementById("svg_1");
+
+    trans = path.getAttribute("transform");
+    transArray = trans.split(" ");
+    transArray[2] = "translate(0," + x.toString() + ")";
+    trans = transArray.join(" ");
+    path.setAttribute("transform", trans);
+
+    return
+}
+
+function setMaskY(y) {
+    path = document.getElementById("svg_1");
+
+    trans = path.getAttribute("transform");
+    transArray = trans.split(" ");
+    transArray[1] = "translate(" + y.toString() + ",0)";
+    trans = transArray.join(" ");
+    path.setAttribute("transform", trans);
+
+    return
+}
+
 function sanitizeString(str){
     str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
     return str.trim();
