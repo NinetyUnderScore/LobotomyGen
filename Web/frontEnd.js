@@ -1,12 +1,16 @@
 videos = [];
 videosTrimmed = [];
 
-function setMaskX(x) {
+async function setMaskX(x) {
     path = document.getElementById("svg_1");
 
     trans = path.getAttribute("transform");
     transArray = trans.split(" ");
-    transArray[2] = "translate(0," + x.toString() + ")";
+
+    newX = parseFloat(x);
+    newX = -320 + newX * 587;
+
+    transArray[2] = "translate(0," + newX.toString() + ")";
     trans = transArray.join(" ");
     path.setAttribute("transform", trans);
 
@@ -49,6 +53,16 @@ async function quickFetch(cmd, p1, p2, p3) {
 
 // simple no input no return functions
 
+async function updateProgress() {
+    response = await quickFetch('getProgress', 0, 0, 0);
+
+    jso = await response.json();
+
+    console.log(jso["message"]);
+
+    setMaskX(jso["message"]);
+}
+
 async function clearTrimmed() {
     response = await quickFetch('clearTrimmed', 0, 0, 0);
 
@@ -85,3 +99,9 @@ async function combine() {
 
     console.log("combined");
 }
+
+// REFRESH_INTERVAL = 0.5;
+
+// setInterval(() => {
+//     updateProgress();
+//  }, REFRESH_INTERVAL * 1000)

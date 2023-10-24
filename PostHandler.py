@@ -1,4 +1,5 @@
 import VideoGen.Searcher, VideoGen.VideoTrimmer, VideoGen.ChannelIndexer, VideoGen.EndVideo, VideoGen.ProgressLogger
+from flask import session
 
 def Handle(cmd, p1, p2, p3):
     if cmd == "clearResults":
@@ -22,6 +23,12 @@ def Handle(cmd, p1, p2, p3):
     
     elif cmd == "combine":
         VideoGen.EndVideo.Combine()
+
+    elif cmd == "getProgress":
+        progress = session.get("progress")
+
+        return { "status": True, 
+                 "message": progress }
 
     elif cmd == "getResults":
         videos = VideoGen.Searcher.Get()
