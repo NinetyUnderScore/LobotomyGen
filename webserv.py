@@ -26,6 +26,8 @@ def req():
 
             response = jsonify(PostHandler.Handle(command, param1, param2, param3))
 
+            response.message = session.get("progress")
+
             response.headers.add('Access-Control-Allow-Origin', '*')
             return response
         except Exception as exc:

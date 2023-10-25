@@ -25,7 +25,6 @@ def Handle(cmd, p1, p2, p3):
         VideoGen.EndVideo.Combine()
 
     elif cmd == "getProgress":
-        progress = session.get("progress")
 
         return { "status": True, 
                  "message": progress }
