@@ -2,10 +2,10 @@ from flask import Flask, jsonify, request, session
 import os
 import PostHandler
 
-if not os.path.exists(os.path.join(os.getcwd(), "VideoGen/videos")):
-    os.mkdir(os.path.join(os.getcwd(),"VideoGen/videos"))
-if not os.path.exists(os.path.join(os.getcwd(), "VideoGen/videosTrimmed")):
-    os.mkdir(os.path.join(os.getcwd(),"VideoGen/videosTrimmed"))
+if not os.path.exists(os.path.join(os.getcwd(), "VideoGen\\videos")):
+    os.mkdir(os.path.join(os.getcwd(),"VideoGen\\videos"))
+if not os.path.exists(os.path.join(os.getcwd(), "VideoGen\\videosTrimmed")):
+    os.mkdir(os.path.join(os.getcwd(),"VideoGen\\videosTrimmed"))
 
 app = Flask(__name__)
 

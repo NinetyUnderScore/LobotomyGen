@@ -35,7 +35,7 @@ def Combine():
     
 
     finalVideo = CompositeVideoClip(Clips)
-    finalVideo.write_videofile(os.path.join(os.path.dirname(__file__), "EndVideo.mp4"), codec="libx264", audio_codec="aac", bitrate='50k', logger=log)
+    finalVideo.write_videofile(os.path.join(os.path.dirname(__file__), "EndVideo.mp4"), codec="libx264", audio_codec="aac", bitrate='5000k', logger=log)
 
 
 if __name__ == '__main__':
